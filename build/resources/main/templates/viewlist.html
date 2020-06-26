@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th =" http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Image</title>
+</head>
+<body>
+<h1> Images </h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>url</th>
+    </tr>
+    <tr th:each = "url : ${urllist}" >
+        <td th:text = ${url.key} >text </td>
+        <td><img th:src="@{${url.value}}" width="200" height="200">img</td>
+        <td th:text = "${url.value}"></td>
+    </tr>
+</table>
+</body>
+</html>
