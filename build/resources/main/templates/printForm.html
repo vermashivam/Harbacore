@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th =" http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<h1>Insert Details : </h1>
+<form th:action="@{/formData}" method="post" >
+    <div th:each = "element : ${elements}" th:switch="${element.type}">
+        <label  th:text="${element.name}">label</label>
+        <div th:case = "text"  th:insert = "~{formTemplate :: text}"></div>
+        <div th:case = "number"  th:insert = "~{formTemplate :: number}"></div>
+        <div th:case = "checkbox" th:insert = "~{formTemplate :: checkbox}"></div>
+        <div th:case = "dropdown" th:insert = "~{formTemplate :: dropdown}"></div>
+    </div>
+    <input type="submit" value="Submit">
+</form>
+<!--
+th:for="${element.name}"
+<div th:case = "checkbox" th:insert = "~{formTemplate :: checkbox}"></div>
+<div th:case = "dropdown" th:insert = "~{formTemplate :: dropdown}"></div>
+-->
+</body>
+</html>

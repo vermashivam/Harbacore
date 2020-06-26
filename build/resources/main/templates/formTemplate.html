@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th =" http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+</head>
+<body>
+
+<div th:fragment = "text">
+    <input type="text" th:field = "${formData.name}" th:name = "${element.name}">
+</div>
+
+<div th:fragment = "number">
+    <input type="number" th:field = "${formData.age}" th:name = "${element.name}">
+</div>
+
+<div th:fragment = "checkbox">
+    <div th:each = "value : ${element.values}">
+        <input type = "checkbox" th:field = "${formData.gender}" th:name = "${element.name}" th:value = "${value}">
+        <label th:for ="${element.name}" th:text="${value}">Value</label>
+    </div>
+</div>
+
+<div th:fragment = "dropdown">
+    <select th:field = "${formData.option}" th:name = "${element.name}">
+        <div th:each = "value : ${element.values}">
+            <option th:value = ${value} th:text = ${value}>Value</option>
+        </div>
+    </select>
+</div>
+
+</body>
+</html>
